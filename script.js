@@ -61,3 +61,31 @@ function addTasksList() {
 }
 
 addTasksList();
+
+function addButtonTasks() {
+  const divInputs = document.querySelector('#inputs');
+  const addButton = document.createElement('button');
+  addButton.id = 'criar-tarefa';
+  addButton.innerText = 'Adicionar';
+  divInputs.appendChild(addButton);
+}
+
+addButtonTasks();
+
+function createTask() {
+  const input = document.querySelector('#texto-tarefa');
+  const button = document.querySelector('#criar-tarefa');
+  const list = document.querySelector('#lista-tarefas');
+  function createItemList() {
+    if (input.value !== '') {
+      const itemList = document.createElement('li');
+      itemList.className = 'item-list';
+      itemList.innerText = input.value;
+      list.appendChild(itemList);
+      input.value = '';
+    }
+  }
+  button.addEventListener('click', createItemList);
+}
+
+createTask();

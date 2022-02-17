@@ -72,16 +72,17 @@ function addButtonTasks() {
 
 addButtonTasks();
 
+const taskList = document.querySelector('#lista-tarefas');
+
 function createTask() {
   const input = document.querySelector('#texto-tarefa');
   const button = document.querySelector('#criar-tarefa');
-  const list = document.querySelector('#lista-tarefas');
   function createItemList() {
     if (input.value !== '') {
       const itemList = document.createElement('li');
       itemList.className = 'item-list';
       itemList.innerText = input.value;
-      list.appendChild(itemList);
+      taskList.appendChild(itemList);
       input.value = '';
     }
   }
@@ -91,7 +92,6 @@ function createTask() {
 createTask();
 
 function changeColorSelectedTask() {
-  const taskList = document.querySelector('#lista-tarefas');
   const listItem = document.getElementsByClassName('item-list');
   function selectedTask(event) {
     const eventSelect = event;
@@ -104,3 +104,18 @@ function changeColorSelectedTask() {
 }
 
 changeColorSelectedTask();
+
+function completedTask() {
+  function selectedTask(event) {
+    const eventCompleted = event;
+    const classNameEvent = eventCompleted.target.className;
+    if (classNameEvent === 'item-list') {
+      eventCompleted.target.className = 'item-list completed';
+    } else if (classNameEvent === 'item-list completed') {
+      eventCompleted.target.className = 'item-list';
+    }
+  }
+  taskList.addEventListener('dblclick', selectedTask);
+}
+
+completedTask();

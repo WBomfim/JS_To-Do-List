@@ -123,3 +123,35 @@ function completedTask() {
 }
 
 completedTask();
+
+function createDivButtonFunctions() {
+  const body = document.querySelector('body');
+  const addButtonsFunction = document.createElement('div');
+  addButtonsFunction.id = 'buttonFunctions';
+  body.appendChild(addButtonsFunction);
+}
+
+createDivButtonFunctions();
+
+function addButtonClearAllTasks() {
+  const divButtonFunctions = document.querySelector('#buttonFunctions');
+  const buttonClearAll = document.createElement('button');
+  buttonClearAll.id = 'apaga-tudo';
+  buttonClearAll.innerText = 'Limpar Lista';
+  divButtonFunctions.appendChild(buttonClearAll);
+}
+
+addButtonClearAllTasks();
+
+function clearAllTasks() {
+  const tasksList = document.querySelector('#lista-tarefas');
+  const buttonClearAll = document.querySelector('#apaga-tudo');
+  function clearAll() {
+    if (tasksList.innerHTML !== '') {
+      tasksList.innerHTML = '';
+    }
+  }
+  buttonClearAll.addEventListener('click', clearAll);
+}
+
+clearAllTasks();

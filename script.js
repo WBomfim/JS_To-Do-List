@@ -1,3 +1,11 @@
+function createReader() {
+  const body = document.querySelector('body');
+  const header = document.createElement('header');
+  body.appendChild(header);
+}
+
+createReader();
+
 function addTitle() {
   const header = document.querySelector('header');
   const title = document.createElement('h1');
@@ -16,3 +24,22 @@ function addInstruction() {
 }
 
 addInstruction();
+
+function createDivInputs() {
+  const body = document.querySelector('body');
+  const addInput = document.createElement('div');
+  addInput.id = 'inputs';
+  body.appendChild(addInput);
+}
+
+createDivInputs();
+
+function addInputs() {
+  const divInputs = document.querySelector('#inputs');
+  const input = document.createElement('input');
+  input.id = 'texto-tarefa';
+  input.type = 'text';
+  divInputs.appendChild(input);
+}
+
+addInputs();

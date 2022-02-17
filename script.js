@@ -27,9 +27,9 @@ addInstruction();
 
 function createDivInputs() {
   const body = document.querySelector('body');
-  const addInput = document.createElement('div');
-  addInput.id = 'inputs';
-  body.appendChild(addInput);
+  const addDiv = document.createElement('div');
+  addDiv.id = 'inputs';
+  body.appendChild(addDiv);
 }
 
 createDivInputs();
@@ -43,3 +43,21 @@ function addInputs() {
 }
 
 addInputs();
+
+function createDivTaskList() {
+  const body = document.querySelector('body');
+  const addList = document.createElement('div');
+  addList.id = 'tarefas';
+  body.appendChild(addList);
+}
+
+createDivTaskList();
+
+function addTasksList() {
+  const divTasks = document.querySelector('#tarefas');
+  const tasksList = document.createElement('ol');
+  tasksList.id = 'lista-tarefas';
+  divTasks.appendChild(tasksList);
+}
+
+addTasksList();

@@ -89,3 +89,18 @@ function createTask() {
 }
 
 createTask();
+
+function changeColorSelectedTask() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const listItem = document.getElementsByClassName('item-list');
+  function selectedTask(event) {
+    const eventSelect = event;
+    for (let index = 0; index < listItem.length; index += 1) {
+      listItem[index].style.backgroundColor = '';
+      eventSelect.target.style.backgroundColor = 'gray';
+    }
+  }
+  taskList.addEventListener('click', selectedTask);
+}
+
+changeColorSelectedTask();

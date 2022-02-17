@@ -95,9 +95,13 @@ function changeColorSelectedTask() {
   const listItem = document.getElementsByClassName('item-list');
   function selectedTask(event) {
     const eventSelect = event;
-    for (let index = 0; index < listItem.length; index += 1) {
-      listItem[index].style.backgroundColor = '';
-      eventSelect.target.style.backgroundColor = 'gray';
+    if (eventSelect.target.style.backgroundColor === '') {
+      for (let index = 0; index < listItem.length; index += 1) {
+        listItem[index].style.backgroundColor = '';
+        eventSelect.target.style.backgroundColor = 'gray';
+      }
+    } else {
+      eventSelect.target.style.backgroundColor = '';
     }
   }
   taskList.addEventListener('click', selectedTask);

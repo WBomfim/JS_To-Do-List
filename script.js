@@ -133,6 +133,16 @@ function createDivButtonFunctions() {
 
 createDivButtonFunctions();
 
+function addButtonClearCompleted() {
+  const divButtonFunctions = document.querySelector('#buttonFunctions');
+  const buttonClearCompleted = document.createElement('button');
+  buttonClearCompleted.id = 'remover-finalizados';
+  buttonClearCompleted.innerText = 'Limpar Concluídos';
+  divButtonFunctions.appendChild(buttonClearCompleted);
+}
+
+addButtonClearCompleted();
+
 function addButtonClearAllTasks() {
   const divButtonFunctions = document.querySelector('#buttonFunctions');
   const buttonClearAll = document.createElement('button');
@@ -144,8 +154,8 @@ function addButtonClearAllTasks() {
 addButtonClearAllTasks();
 
 function clearAllTasks() {
-  const tasksList = document.querySelector('#lista-tarefas');
   const buttonClearAll = document.querySelector('#apaga-tudo');
+  const tasksList = document.querySelector('#lista-tarefas');
   function clearAll() {
     if (tasksList.innerHTML !== '') {
       tasksList.innerHTML = '';
@@ -155,3 +165,19 @@ function clearAllTasks() {
 }
 
 clearAllTasks();
+
+// Resolvido com a ajuda do Matheus na mentoria, a função deletava apenas a metade da seleção.
+function clearTaskCompleted() {
+  const buttonClearCompleted = document.querySelector('#remover-finalizados');
+  function clearCompleted() {
+    const tasksList = document.querySelector('#lista-tarefas');
+    const itemsListTask = document.querySelectorAll('.completed');
+    for (let index = 0; index < itemsListTask.length; index += 1) {
+      console.log(index);
+      tasksList.removeChild(itemsListTask[index]);
+    }
+  }
+  buttonClearCompleted.addEventListener('click', clearCompleted);
+}
+
+clearTaskCompleted();

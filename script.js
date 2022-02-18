@@ -159,10 +159,28 @@ function clearTaskSelected() {
 
 clearTaskSelected();
 
+function addButtonListUp() {
+  const buttonListUp = document.createElement('button');
+  buttonListUp.id = 'mover-cima';
+  buttonListUp.innerText = '↑';
+  divButtonFunctions.appendChild(buttonListUp);
+}
+
+addButtonListUp();
+
+function addButtonListDown() {
+  const buttonListDown = document.createElement('button');
+  buttonListDown.id = 'mover-baixo';
+  buttonListDown.innerText = '↓';
+  divButtonFunctions.appendChild(buttonListDown);
+}
+
+addButtonListDown();
+
 function addButtonClearCompleted() {
   const buttonClearCompleted = document.createElement('button');
   buttonClearCompleted.id = 'remover-finalizados';
-  buttonClearCompleted.innerText = 'Limpar Concluídos';
+  buttonClearCompleted.innerText = 'Remover Concluídos';
   divButtonFunctions.appendChild(buttonClearCompleted);
 }
 
@@ -171,7 +189,7 @@ addButtonClearCompleted();
 function addButtonClearAllTasks() {
   const buttonClearAll = document.createElement('button');
   buttonClearAll.id = 'apaga-tudo';
-  buttonClearAll.innerText = 'Limpar Lista';
+  buttonClearAll.innerText = 'Remover Lista';
   divButtonFunctions.appendChild(buttonClearAll);
 }
 

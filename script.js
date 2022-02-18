@@ -72,7 +72,7 @@ function addButtonTasks() {
 
 addButtonTasks();
 
-const taskList = document.querySelector('#lista-tarefas');
+const tasksList = document.querySelector('#lista-tarefas');
 
 function createTask() {
   const input = document.querySelector('#texto-tarefa');
@@ -82,7 +82,7 @@ function createTask() {
       const itemList = document.createElement('li');
       itemList.className = 'item-list';
       itemList.innerText = input.value;
-      taskList.appendChild(itemList);
+      tasksList.appendChild(itemList);
       input.value = '';
     }
   }
@@ -104,7 +104,7 @@ function changeColorSelectedTask() {
       eventSelect.target.style.backgroundColor = '';
     }
   }
-  taskList.addEventListener('click', selectedTask);
+  tasksList.addEventListener('click', selectedTask);
 }
 
 changeColorSelectedTask();
@@ -119,7 +119,7 @@ function completedTask() {
       eventCompleted.target.className = 'item-list';
     }
   }
-  taskList.addEventListener('dblclick', selectedTask);
+  tasksList.addEventListener('dblclick', selectedTask);
 }
 
 completedTask();
@@ -133,8 +133,9 @@ function createDivButtonFunctions() {
 
 createDivButtonFunctions();
 
+const divButtonFunctions = document.querySelector('#buttonFunctions');
+
 function addButtonClearCompleted() {
-  const divButtonFunctions = document.querySelector('#buttonFunctions');
   const buttonClearCompleted = document.createElement('button');
   buttonClearCompleted.id = 'remover-finalizados';
   buttonClearCompleted.innerText = 'Limpar Concluídos';
@@ -144,7 +145,6 @@ function addButtonClearCompleted() {
 addButtonClearCompleted();
 
 function addButtonClearAllTasks() {
-  const divButtonFunctions = document.querySelector('#buttonFunctions');
   const buttonClearAll = document.createElement('button');
   buttonClearAll.id = 'apaga-tudo';
   buttonClearAll.innerText = 'Limpar Lista';
@@ -155,7 +155,6 @@ addButtonClearAllTasks();
 
 function clearAllTasks() {
   const buttonClearAll = document.querySelector('#apaga-tudo');
-  const tasksList = document.querySelector('#lista-tarefas');
   function clearAll() {
     if (tasksList.innerHTML !== '') {
       tasksList.innerHTML = '';
@@ -170,10 +169,8 @@ clearAllTasks();
 function clearTaskCompleted() {
   const buttonClearCompleted = document.querySelector('#remover-finalizados');
   function clearCompleted() {
-    const tasksList = document.querySelector('#lista-tarefas');
     const itemsListTask = document.querySelectorAll('.completed');
     for (let index = 0; index < itemsListTask.length; index += 1) {
-      console.log(index);
       tasksList.removeChild(itemsListTask[index]);
     }
   }
@@ -181,3 +178,27 @@ function clearTaskCompleted() {
 }
 
 clearTaskCompleted();
+
+function addButtonSave() {
+  const buttonSave = document.createElement('button');
+  buttonSave.id = 'salvar-tarefas';
+  buttonSave.innerText = 'Salvar';
+  divButtonFunctions.appendChild(buttonSave);
+}
+
+addButtonSave();
+
+function saveTasksList() {
+  const buttonSave = document.querySelector('#salvar-tarefas');
+  function save() {
+    localStorage.setItem('taskList', tasksList.innerHTML);
+  }
+  buttonSave.addEventListener('click', save);
+}
+
+saveTasksList();
+
+window.onload = function loadList() {
+  const tasksLoad = localStorage.getItem('taskList');
+  tasksList.innerHTML = tasksLoad;
+};

@@ -135,6 +135,30 @@ createDivButtonFunctions();
 
 const divButtonFunctions = document.querySelector('#buttonFunctions');
 
+function addButtonClearSelected() {
+  const buttonClearSelected = document.createElement('button');
+  buttonClearSelected.id = 'remover-selecionado';
+  buttonClearSelected.innerText = 'X';
+  divButtonFunctions.appendChild(buttonClearSelected);
+}
+
+addButtonClearSelected();
+
+function clearTaskSelected() {
+  const buttonClearSelected = document.querySelector('#remover-selecionado');
+  function clearSelected() {
+    const itemsListTask = document.querySelectorAll('.item-list');
+    for (let index = 0; index < itemsListTask.length; index += 1) {
+      if (itemsListTask[index].style.backgroundColor === 'gray') {
+        tasksList.removeChild(itemsListTask[index]);
+      }
+    }
+  }
+  buttonClearSelected.addEventListener('click', clearSelected);
+}
+
+clearTaskSelected();
+
 function addButtonClearCompleted() {
   const buttonClearCompleted = document.createElement('button');
   buttonClearCompleted.id = 'remover-finalizados';

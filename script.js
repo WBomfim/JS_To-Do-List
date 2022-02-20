@@ -16,9 +16,11 @@ const listItem = document.getElementsByClassName('item-list');
 
 function changeColorSelectedTask(event) {
   const eventSelect = event;
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].style.backgroundColor = '';
-    eventSelect.target.style.backgroundColor = 'gray';
+  if (eventSelect.target.className === 'item-list') {
+    for (let index = 0; index < listItem.length; index += 1) {
+      listItem[index].style.backgroundColor = '';
+      eventSelect.target.style.backgroundColor = 'gray';
+    }
   }
 }
 

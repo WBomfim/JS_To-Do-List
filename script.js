@@ -12,6 +12,12 @@ function createTask() {
   }
 }
 
+function addTaskPressKey(event) {
+  if (event.keyCode === 13) {
+    createTask();
+  }
+}
+
 const listItem = document.getElementsByClassName('item-list');
 
 function changeColorSelectedTask(event) {
@@ -101,6 +107,7 @@ function loadList() {
 window.onload = function loadingEvents() {
   loadList();
   button.addEventListener('click', createTask);
+  input.addEventListener('keypress', addTaskPressKey);
   tasksList.addEventListener('click', changeColorSelectedTask);
   tasksList.addEventListener('dblclick', completedTask);
   buttonClearSelected.addEventListener('click', clearTaskSelected);

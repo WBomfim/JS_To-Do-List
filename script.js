@@ -95,13 +95,9 @@ function changeColorSelectedTask() {
   const listItem = document.getElementsByClassName('item-list');
   function selectedTask(event) {
     const eventSelect = event;
-    if (eventSelect.target.style.backgroundColor === '') {
-      for (let index = 0; index < listItem.length; index += 1) {
-        listItem[index].style.backgroundColor = '';
-        eventSelect.target.style.backgroundColor = 'gray';
-      }
-    } else {
-      eventSelect.target.style.backgroundColor = '';
+    for (let index = 0; index < listItem.length; index += 1) {
+      listItem[index].style.backgroundColor = '';
+      eventSelect.target.style.backgroundColor = 'gray';
     }
   }
   tasksList.addEventListener('click', selectedTask);
@@ -168,6 +164,23 @@ function addButtonListUp() {
 
 addButtonListUp();
 
+// Pesquisado o funcionamento da função insertBefore() no W3 Schools.
+// Link: https://www.w3schools.com/jsref/met_node_insertbefore.asp
+function elementListUp() {
+  const buttonListUp = document.querySelector('#mover-cima');
+  function listUp() {
+    const itemsList = document.getElementsByClassName('item-list');
+    for (let index = 0; index < itemsList.length; index += 1) {
+      if (itemsList[index].style.backgroundColor === 'gray' && index > 0) {
+        return tasksList.insertBefore(itemsList[index], itemsList[index].previousElementSibling);
+      }
+    }
+  }
+  buttonListUp.addEventListener('click', listUp);
+}
+
+elementListUp();
+
 function addButtonListDown() {
   const buttonListDown = document.createElement('button');
   buttonListDown.id = 'mover-baixo';
@@ -176,6 +189,21 @@ function addButtonListDown() {
 }
 
 addButtonListDown();
+
+function elementListDown() {
+  const buttonListDown = document.querySelector('#mover-baixo');
+  function listDown() {
+    const itemsList = document.getElementsByClassName('item-list');
+    for (let index = 0; index < itemsList.length; index += 1) {
+      if (itemsList[index].style.backgroundColor === 'gray' && index < itemsList.length - 1) {
+        return tasksList.insertBefore(itemsList[index].nextElementSibling, itemsList[index]);
+      }
+    }
+  }
+  buttonListDown.addEventListener('click', listDown);
+}
+
+elementListDown();
 
 function addButtonClearCompleted() {
   const buttonClearCompleted = document.createElement('button');

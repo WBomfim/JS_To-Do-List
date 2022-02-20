@@ -19,20 +19,20 @@ body {
 header {
   padding: 40px 40px 10px;
   background-color: whitesmoke;
-  border-radius:  60px 60px 0 0;
+  border-radius: 60px 60px 0 0;
   font-size: 20px;
   letter-spacing: 2px;
   color: rgb(165, 165, 165);
 }
 
-h1{
+h1 {
   font-size: 50px;
   margin-bottom: 10px;
   margin-left: 3.5%;
   text-decoration: underline;
   letter-spacing: 0;
   color: black;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 #funcionamento {
@@ -42,7 +42,6 @@ h1{
 
 #inputs {
   background-color: whitesmoke;
-  height: 40px;
   height: 60px;
 }
 
@@ -67,7 +66,7 @@ h1{
   font-size: 20px;
   border-radius: 8px;
   color: white;
-  font-weight: bolder;
+  font-weight: 900;
   background-color: rgb(63, 178, 255);
 }
 
@@ -90,13 +89,13 @@ h1{
   padding: 2px;
   font-size: 22px;
   letter-spacing: 2px;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 #buttonFunctions {
   background-color: whitesmoke;
   height: 100px;
-  border-radius:  0 0 60px 60px;
+  border-radius: 0 0 60px 60px;
 }
 
 #remover-selecionado {
@@ -107,7 +106,7 @@ h1{
   font-size: 20px;
   color: white;
   border-radius: 8px;
-  font-weight: bolder;
+  font-weight: 900;
   background-color: rgb(255, 50, 50);
 }
 
@@ -118,7 +117,7 @@ h1{
   margin-top: 1.2%;
   font-size: 20px;
   border-radius: 8px;
-  font-weight: bolder;
+  font-weight: 900;
   color: white;
   background-color: rgb(245, 143, 48);
 }
@@ -130,7 +129,7 @@ h1{
   margin-top: 1.2%;
   font-size: 20px;
   border-radius: 8px;
-  font-weight: bolder;
+  font-weight: 900;
   color: white;
   background-color: rgb(245, 143, 48);
 }
@@ -142,7 +141,7 @@ h1{
   margin-top: 1.2%;
   font-size: 20px;
   border-radius: 8px;
-  font-weight: bolder;
+  font-weight: 900;
   color: white;
   background-color: rgb(63, 178, 255);
 }
@@ -154,7 +153,7 @@ h1{
   margin-top: 1.2%;
   font-size: 20px;
   border-radius: 8px;
-  font-weight: bolder;
+  font-weight: 900;
   color: white;
   background-color: rgb(255, 50, 50);
 }
@@ -166,7 +165,7 @@ h1{
   margin-top: 1.2%;
   font-size: 20px;
   border-radius: 8px;
-  font-weight: bolder;
+  font-weight: 900;
   color: white;
   background-color: rgb(81, 201, 81);
 }

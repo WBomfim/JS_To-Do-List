@@ -22,11 +22,13 @@ const listItem = document.getElementsByClassName('item-list');
 
 function changeColorSelectedTask(event) {
   const eventSelect = event;
-  if (eventSelect.target.className === 'item-list') {
+  if (eventSelect.target.style.backgroundColor === '') {
     for (let index = 0; index < listItem.length; index += 1) {
       listItem[index].style.backgroundColor = '';
       eventSelect.target.style.backgroundColor = 'gray';
     }
+  } else {
+    eventSelect.target.style.backgroundColor = '';
   }
 }
 
@@ -53,8 +55,6 @@ function clearTaskSelected() {
 
 const buttonListUp = document.querySelector('#mover-cima');
 
-// Pesquisado o funcionamento da função insertBefore() no W3 Schools.
-// Link: https://www.w3schools.com/jsref/met_node_insertbefore.asp
 function moveElementListUp() {
   const itemsList = document.getElementsByClassName('item-list');
   for (let index = 0; index < itemsList.length; index += 1) {
@@ -83,7 +83,6 @@ function clearAllTasks() {
   }
 }
 
-// Resolvido com a ajuda do Matheus na mentoria, a função deletava apenas a metade da seleção.
 const buttonClearCompleted = document.querySelector('#remover-finalizados');
 
 function clearTaskCompleted() {

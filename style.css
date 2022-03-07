@@ -97,6 +97,7 @@ input {
 }
 
 #buttonFunctions {
+  display: flex;
   background-color: black;
   min-height: 120px;
   border-radius: 0 0 60px 60px;
@@ -173,4 +174,49 @@ input {
   font-weight: 900;
   color: black;
   background-color: rgb(82 , 201 , 81);
+}
+
+@media screen and (max-width: 940px) {
+  #remover-selecionado {
+    height: 50px;
+  }
+
+  #mover-cima {
+    height: 50px;
+  }
+
+  #mover-baixo {
+    height: 50px;
+  }
+
+  #remover-finalizados {
+    height: 50px;
+  }
+
+  #apaga-tudo {
+    height: 50px;
+    width: 95px;
+  }
+
+  #salvar-tarefas {
+    height: 50px;
+    width: 65px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #remover-selecionado {
+    width: 25px;
+  }
+
+  #mover-cima {
+    width: 25px;
+  }
+
+  #mover-baixo {
+    width: 25px;
+  }
+  #remover-finalizados {
+    width: 115px;
+  }
 }
